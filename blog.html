@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GameFarm Blog - Play, Relax, Repeat</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="blog.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Header with Navigation -->
+        <header>
+            <div class="container header-container">
+                <a href="#" class="logo">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path
+                                d="M192 64C86 64 0 150 0 256S86 448 192 448l256 0c106 0 192-86 192-192s-86-192-192-192L192 64zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24l0 32 32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0 0 32c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-32-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l32 0 0-32z" />
+                        </svg>
+                    </i>
+                    GameFarm
+                </a>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path
+                                d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
+                        </svg>
+                    </i>
+                </button>
+
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="index.html">Games</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Donate</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Blog Hero Section -->
+        <section class="blog-hero">
+            <div class="container">
+                <h1>GameFarm Blog</h1>
+                <p>Discover articles about gaming, relaxation, and mental
+                    well-being</p>
+            </div>
+        </section>
+
+        <section class="blog-posts">
+
+            <!-- blog post 1 -->
+            <div class="blog-container">
+                <div class="blog-image-container">
+                    <img src="images/open.jpg" alt="logo" class="blog-image">
+                </div>
+                <div class="blog-content">
+                    <h1>What is GameFarm</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Harum debitis autem, recusandae a aliquid earum dolor
+                        unde maxime suscipit blanditiis tenetur neque labore
+                        corrupti corporis quaerat nisi beatae voluptas.
+                        Ab.... <a href="#">Read More</a></p>
+                    <div class="title">
+                        <p class="date">Friday 12 June 2025</p>
+                        <p class="category"
+                            style="color: var(--light);">Productivity</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i> GameFarm
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+
+                    <div class="footer-links">
+                        <a href="#games">Games</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Donate</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Contact</a>
+                    </div>
+
+                    <p class="copyright">
+                        &copy; 2023 GameFarm. All rights reserved. Made with <i
+                            class="fas fa-heart"
+                            style="color: var(--accent);"></i> by game lovers.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for subscribing to our newsletter!');
+            this.reset();
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('show');
+            });
+        });
+    </script>
+    </body>
+</html>

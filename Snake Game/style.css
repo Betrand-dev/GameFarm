@@ -1,0 +1,270 @@
+:root {
+    --primary: #2ecc71;
+    --secondary: #27ae60;
+    --background: #1a1a1a;
+    --text: #ecf0f1;
+    --snake: #3498db;
+    --food: #e74c3c;
+    --border: #7f8c8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+h1 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#game-board {
+    background-color: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-height: 80vh;
+    aspect-ratio: 1/1;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.score-box {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.score-box h3 {
+    color: var(--primary);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 200px;
+    max-width: 100%;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.mobile-controls {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.mobile-btn {
+    background-color: rgba(52, 152, 219, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mobile-btn:active {
+    background-color: rgba(41, 128, 185, 0.7);
+}
+
+.up-btn {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.left-btn {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.right-btn {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.down-btn {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 10;
+    display: none;
+}
+
+.game-over h2 {
+    color: var(--food);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.game-over p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    margin-top: 30px;
+    max-width: 600px;
+    width: 500px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    line-height: 1.6;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.instructions h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.instructions i svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    fill: white;
+    top: 20px;
+    right: 15px;
+    transition: all 0.5s ease;
+}
+
+#drop-down-content {
+    transition: all 0.5s ease;
+    display: none;
+}
+
+#drop-down-content.active {
+    display: block;
+    border-top: 1px solid gray;
+}
+
+.instructions i svg.active {
+    transform: rotate(180deg);
+}
+
+.instructions ul {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .mobile-controls {
+        display: grid;
+    }
+
+    .score-box h3 {
+        font-size: 0.9rem;
+    }
+
+    .score-value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .score-box {
+        padding: 8px 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
