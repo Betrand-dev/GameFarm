@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Quiz|GameFarm</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>Word Quiz Game</h1>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active"
+                    data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn"
+                    data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn"
+                    data-difficulty="hard">Hard</button>
+            </div>
+
+            <div class="game-info">
+                <div class="timer">Time: <span id="time">30</span>s</div>
+                <div class="score">Score: <span id="score">0</span></div>
+            </div>
+
+            <div class="word-display" id="word-display">Loading...</div>
+
+            <div class="options" id="options">
+                <!-- Options will be filled by JavaScript -->
+            </div>
+
+            <button class="next-btn" id="next-btn">Next Word</button>
+
+            <div class="game-over" id="game-over">
+                <h2>Game Over!</h2>
+                <div class="final-score">Your Score: <span
+                        id="final-score">0</span></div>
+                <button class="restart-btn" id="restart-btn">Play Again</button>
+            </div>
+
+            <div class="settings">
+                <div class="sound-toggle">
+                    <span>Sound:</span>
+                    <label class="switch">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--  audio elements with these -->
+        <audio id="correct-sound">
+            <source
+                src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"
+                type="audio/mpeg">
+            <source src="correct.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="wrong-sound">
+            <source
+                src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"
+                type="audio/mpeg">
+            <source src="wrong.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="game-over-sound">
+            <source
+                src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"
+                type="audio/mpeg">
+            <source src="gameover.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="tick-sound">
+            <source
+                src="https://assets.mixkit.co/sfx/preview/mixkit-clock-countdown-bleeps-916.mp3"
+                type="audio/mpeg">
+            <source src="tick.mp3" type="audio/mpeg">
+        </audio>
+        <script src="script.js"></script>
+    </body>
+</html>

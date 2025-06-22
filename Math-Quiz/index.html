@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Math Quiz Game</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="theme-toggle" title="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+        </div>
+
+        <div class="container">
+            <header>
+                <h1>Math Quiz Game</h1>
+                <p>Test your math skills against the clock!</p>
+            </header>
+
+            <div class="difficulty-selector">
+                <button class="difficulty-btn easy"
+                    data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn medium"
+                    data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn hard"
+                    data-difficulty="hard">Hard</button>
+            </div>
+
+            <div class="game-container">
+                <div class="timer-container">
+                    <div class="timer-bar"></div>
+                </div>
+                <div class="question-container">
+                    <div class="question">What is 5 + 7?</div>
+                </div>
+                <div class="options">
+                    <button class="option-btn">12</button>
+                    <button class="option-btn">13</button>
+                    <button class="option-btn">11</button>
+                </div>
+                <div class="score-container">
+                    Score: <span class="score">0</span>
+                </div>
+                <div class="controls">
+                    <button class="control-btn next-btn">Next Question</button>
+                </div>
+            </div>
+
+            <div class="result-container">
+                <h2 class="result-message">Quiz Completed!</h2>
+                <div class="final-score">Your score: <span
+                        class="score-display">0</span></div>
+                <button class="control-btn restart-btn">Play Again</button>
+            </div>
+        </div>
+
+        <div class="sound-control" title="Toggle sound">
+            <span class="sound-icon">🔊</span>
+        </div>
+
+        <!-- Audio elements -->
+        <audio id="backgroundMusic" loop>
+            <source
+                src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="correctSound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="wrongSound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-10.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="timeoutSound">
+            <source src="https://www.soundjay.com/buttons/sounds/beep-07.mp3"
+                type="audio/mpeg">
+        </audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic-Tac-Toe | GameFarm</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>Tic-Tac-Toe</h1>
+
+            <div class="mode-selection">
+                <button class="mode-btn active" id="friend-mode">Play with
+                    Friend</button>
+                <button class="mode-btn" id="computer-mode">Play with
+                    Computer</button>
+            </div>
+
+            <div class="status" id="status">Player X's turn</div>
+
+            <div class="score-display">
+                <div class="score-item">
+                    <span>Player X</span>
+                    <span class="score-value" id="score-x">0</span>
+                </div>
+                <div class="score-item">
+                    <span>Draws</span>
+                    <span class="score-value" id="score-draw">0</span>
+                </div>
+                <div class="score-item">
+                    <span>Player O</span>
+                    <span class="score-value" id="score-o">0</span>
+                </div>
+            </div>
+
+            <div class="board" id="board">
+                <!-- Cells will be added by JavaScript -->
+            </div>
+
+            <div class="controls">
+                <button id="reset-btn">Reset Game</button>
+                <button id="new-game-btn">New Game</button>
+            </div>
+
+            <div class="settings">
+                <div class="toggle-sound">
+                    <span>Sound:</span>
+                    <label class="switch">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio elements -->
+        <audio id="background-music" loop>
+            <source
+                src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="click-sound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="win-sound">
+            <source src="https://www.soundjay.com/human/sounds/applause-8.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="draw-sound">
+            <source
+                src="https://www.soundjay.com/human/sounds/crowd-cheer-01.mp3"
+                type="audio/mpeg">
+        </audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>

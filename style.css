@@ -108,17 +108,38 @@ nav ul li a:hover {
 
 .hero h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--primary);
 }
 
 .hero p {
     font-size: 1.2rem;
     max-width: 700px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 0.5rem;
     color: var(--dark);
 }
 
+.hero h3 {
+    margin-bottom: 0.25rem;
+}
+
+.hero-follow {
+    display: flex;
+    gap: 10px;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-follow i svg {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--dark);
+}
+
+.hero-follow i svg:hover {
+    fill: var(--primary);
+}
 
 /* Games Section */
 .games-section {
@@ -211,19 +232,27 @@ footer {
     color: var(--accent);
 }
 
-.social-links {
-    margin-bottom: 1.5rem;
+.footer-logo i svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--accent);
 }
 
-.social-links a {
-    color: white;
-    font-size: 1.5rem;
+.social-links {
+    margin-bottom: 1.5rem;
+    display: flex;
+}
+
+.social-links a i svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
     margin: 0 10px;
     transition: color 0.3s ease;
 }
 
-.social-links a:hover {
-    color: var(--accent);
+.social-links a i svg:hover {
+    fill: var(--accent);
 }
 
 .footer-links {
@@ -252,7 +281,7 @@ footer {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .header-container {
-        padding: 0 20px;
+        padding: 0 15px;
     }
 
     nav ul {
@@ -261,7 +290,9 @@ footer {
         top: 70px;
         left: 0;
         width: 100%;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
+        background: white;
+        border-top: 2px solid var(--dark);
         flex-direction: column;
         padding: 1rem 0;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -279,6 +310,7 @@ footer {
 
     .mobile-menu-btn {
         display: block;
+        /* margin-left: 10px; */
     }
 
     .hero {
