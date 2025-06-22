@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>4-In-A-Row Game | GameFarm</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>4-In-A-Row</h1>
+        </header>
+
+        <div class="game-container">
+            <div class="game-controls">
+                <div class="mode-selector">
+                    <button id="vsFriendBtn" class="active">Play with
+                        Friend</button>
+                    <button id="vsComputerBtn">Play with Computer</button>
+                </div>
+                <div class="sound-controls">
+                    <button id="musicToggle">Music: On</button>
+                    <button id="soundToggle">Sounds: On</button>
+                    <button id="resetBtn">Reset Game</button>
+                </div>
+            </div>
+
+            <div class="game-board" id="gameBoard"></div>
+
+            <div class="game-info" id="gameInfo">
+                <span>Current turn: </span>
+                <span class="current-player player1-text">Player 1 (Red)</span>
+            </div>
+
+            <div class="score-board">
+                <div class="score">
+                    <div>Player 1</div>
+                    <div class="score-value player1-text"
+                        id="player1Score">0</div>
+                </div>
+                <div class="score">
+                    <div>Player 2</div>
+                    <div class="score-value player2-text"
+                        id="player2Score">0</div>
+                </div>
+            </div>
+        </div>
+
+        <audio id="backgroundMusic" loop>
+            <source
+                src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="dropSound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="winSound">
+            <source src="https://www.soundjay.com/human/sounds/applause-01.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="drawSound">
+            <source src="https://www.soundjay.com/human/sounds/applause-08.mp3"
+                type="audio/mpeg">
+        </audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>

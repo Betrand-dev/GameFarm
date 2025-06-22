@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>6 in a Row Game</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>6 in a Row Game</h1>
+
+        <div class="game-container">
+            <div class="game-controls">
+                <div class="mode-selector">
+                    <button id="friend-mode" class="active">Play with
+                        Friend</button>
+                    <button id="computer-mode">Play with Computer</button>
+                </div>
+                <div class="sound-controls">
+                    <button id="music-toggle">Music: ON</button>
+                    <button id="sound-toggle">Sounds: ON</button>
+                </div>
+            </div>
+
+            <div class="game-info">
+                Current turn: <span id="current-player-text">Player 1</span>
+                <span class="current-player player1"
+                    id="current-player-indicator"></span>
+            </div>
+
+            <div class="game-board">
+                <div class="board-grid" id="game-board"></div>
+            </div>
+
+            <button class="restart-btn" id="restart-btn">Restart Game</button>
+        </div>
+
+        <!-- Audio elements -->
+        <audio id="background-music" loop>
+            <source
+                src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="place-sound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="win-sound">
+            <source src="https://www.soundjay.com/human/sounds/applause-01.mp3"
+                type="audio/mpeg">
+        </audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>
