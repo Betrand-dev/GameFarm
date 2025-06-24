@@ -63,7 +63,6 @@
 
 
 .blog-content {
-    position: relative;
     flex: 1;
     padding: 2rem 3rem;
 }
@@ -84,18 +83,16 @@
 }
 
 .title {
-    position: absolute;
     display: flex;
-    bottom: 0;
     gap: 3rem;
     padding: 10px 0;
 }
 
 .category {
     background-color: rgb(241, 150, 150);
-    margin-bottom: 2px;
     padding: 2px;
-    border-radius: 3px 2px;
+    border-radius: 3px;
+    text-align: center;
 }
 
 
@@ -150,16 +147,11 @@
         object-fit: cover;
     }
 
-    .blog-content {
-        position: relative;
-        padding: 2rem 3rem 3rem 3rem;
-    }
+
 
     .title {
-        position: absolute;
-        display: flex;
-        bottom: 2px;
-        gap: 3rem;
+        font-size: 10px;
+        gap: 2rem;
         padding-top: 20px;
     }
 }
