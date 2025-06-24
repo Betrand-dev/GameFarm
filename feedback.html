@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feedback Form</title>
+        <script
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script>
+        // Initialize EmailJS with your user ID
+        (function() {
+            emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your actual EmailJS user ID
+        })();
+    </script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="feedback.css">
+    </head>
+    <body>
+
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="#" class="logo">
+                        <i>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path
+                                    d="M192 64C86 64 0 150 0 256S86 448 192 448l256 0c106 0 192-86 192-192s-86-192-192-192L192 64zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24l0 32 32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0 0 32c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-32-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l32 0 0-32z" />
+                            </svg>
+                        </i>
+                        GameFarm
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Game</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="feedback.html"
+                                class="active">Feedback</a></li>
+                    </ul>
+
+                    <div class="menu-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="feedback-section">
+
+            <div class="feedback-container">
+                <h1>Share Your Feedback</h1>
+                <p>We'd love to hear your thoughts to improve our service.</p>
+
+                <form id="feedback-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Feedback</label>
+                        <textarea id="message" name="message" rows="5"
+                            required></textarea>
+                    </div>
+
+                    <div class="rating-group">
+                        <label>How would you rate your experience?</label>
+                        <div class="star-rating">
+                            <input type="radio" id="5-stars" name="rating"
+                                value="5">
+                            <label for="5-stars" class="star">&#9733;</label>
+                            <input type="radio" id="4-stars" name="rating"
+                                value="4">
+                            <label for="4-stars" class="star">&#9733;</label>
+                            <input type="radio" id="3-stars" name="rating"
+                                value="3">
+                            <label for="3-stars" class="star">&#9733;</label>
+                            <input type="radio" id="2-stars" name="rating"
+                                value="2">
+                            <label for="2-stars" class="star">&#9733;</label>
+                            <input type="radio" id="1-star" name="rating"
+                                value="1">
+                            <label for="1-star" class="star">&#9733;</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn">Submit
+                        Feedback</button>
+                </form>
+
+                <div id="loading-indicator" class="loading">
+                    <div class="spinner"></div>
+                    <p>Sending your feedback...</p>
+                </div>
+
+                <div id="message-container" class="message"></div>
+            </div>
+        </section>
+
+        <script>
+
+            // Mobile Navigation Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+            // end of mobile navigation toggle
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const feedbackForm = document.getElementById('feedback-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const messageContainer = document.getElementById('message-container');
+
+    feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading indicator
+        submitBtn.disabled = true;
+        loadingIndicator.style.display = 'flex';
+        messageContainer.style.display = 'none';
+        
+        // Prepare form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value,
+            rating: document.querySelector('input[name="rating"]:checked')?.value || 'Not rated'
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', formData)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showMessage('Thank you for your feedback! We appreciate your time.', 'success');
+                feedbackForm.reset();
+                
+                // Reset star rating
+                const stars = document.querySelectorAll('input[name="rating"]');
+                stars.forEach(star => star.checked = false);
+            })
+            .catch(function(error) {
+                console.log('FAILED...', error);
+                showMessage('Failed to send feedback. Please try again later.', 'error');
+            })
+            .finally(function() {
+                submitBtn.disabled = false;
+                loadingIndicator.style.display = 'none';
+            });
+    });
+    
+    function showMessage(message, type) {
+        messageContainer.textContent = message;
+        messageContainer.className = 'message ' + type;
+        messageContainer.style.display = 'block';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            messageContainer.style.display = 'none';
+        }, 5000);
+    }
+    
+    // Add animation to form elements when they come into view
+    const formGroups = document.querySelectorAll('.form-group, .rating-group');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    formGroups.forEach((group, index) => {
+        group.style.opacity = '0';
+        group.style.transform = 'translateY(20px)';
+        group.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+        observer.observe(group);
+    });
+});
+    </script>
+    </body>
+</html>

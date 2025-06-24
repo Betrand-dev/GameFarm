@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GameFarm: Your Escape to Relaxation Through Play</title>
+        <style>
+        :root {
+            --primary: #6a5acd; /* Slate blue */
+            --secondary: #9370db; /* Medium purple */
+            --accent: #ffa07a; /* Light salmon */
+            --light: #f8f9fa;
+            --dark: #2d3436;
+            --text: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 80px 0 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 50px;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            margin: 40px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.01);
+        }
+
+        .content-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        h2 {
+            color: var(--primary);
+            margin: 30px 0 20px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        h3 {
+            color: var(--dark);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background-color: rgba(106, 90, 205, 0.08);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: "✨";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: 1.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 3px solid var(--accent);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .checkmark {
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-radius: 10px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,160,122,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            font-size: 1.1rem;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 30px 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <h1>GameFarm: Your Escape to Relaxation Through Play</h1>
+                <p class="subtitle">Discover the therapeutic power of gaming and
+                    melt your stress away</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <img
+                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="People enjoying relaxing games"
+                class="hero-image">
+
+            <div class="content-section fade-in">
+                <h2>What is GameFarm?</h2>
+                <p>GameFarm is an online platform offering a handpicked
+                    collection of <strong>calming, fun, and stress-relieving
+                        games</strong>. Unlike competitive gaming sites, we
+                    focus on experiences that soothe your mind, whether it's
+                    solving puzzles, exploring serene worlds, or creating
+                    art.</p>
+
+                <div class="highlight-box slide-up">
+                    <p>"After just 20 minutes on GameFarm, I feel like I've had a mental reset. It's become my go-to break during my busy workday."
+                        - Sarah K., regular user</p>
+                </div>
+
+                <h2 class="slide-up">How Does Gaming Help with Stress?</h2>
+                <p class="slide-up">Science shows that gaming can be a powerful
+                    tool for relaxation and mental wellness:</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card slide-up">
+                        <h4>Reduces Cortisol</h4>
+                        <p><span class="checkmark">✓</span> Lowers stress
+                            hormone levels by up to 17% after just 30 minutes of
+                            play</p>
+                    </div>
+                    <div class="benefit-card slide-up"
+                        style="animation-delay: 0.2s;">
+                        <h4>Boosts Dopamine</h4>
+                        <p><span class="checkmark">✓</span> Triggers your
+                            brain's reward system to improve mood</p>
+                    </div>
+                    <div class="benefit-card slide-up"
+                        style="animation-delay: 0.4s;">
+                        <h4>Provides Escape</h4>
+                        <p><span class="checkmark">✓</span> Gives your mind a
+                            break from cyclical stressful thoughts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section fade-in">
+                <h2>At GameFarm, We Curate Relaxation</h2>
+                <p>Our games are specially selected to promote mental wellness
+                    and stress relief:</p>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Mindful puzzle game">
+                        <div class="gallery-caption">Mindful Puzzles</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Exploration game">
+                        <div class="gallery-caption">Serene Explorations</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Creative sandbox game">
+                        <div class="gallery-caption">Creative Sandboxes</div>
+                    </div>
+                </div>
+
+                <h3 class="slide-up">Why Choose GameFarm?</h3>
+                <ul class="slide-up" style="list-style-type: none;">
+                    <li><span class="checkmark">✓</span> <strong>No toxic
+                            competition</strong> — just pure, relaxing fun</li>
+                    <li><span class="checkmark">✓</span> <strong>No
+                            downloads</strong> — play instantly in your
+                        browser</li>
+                    <li><span class="checkmark">✓</span> <strong>Personalized
+                            picks</strong> — games tailored to your mood</li>
+                    <li><span class="checkmark">✓</span> <strong>Session
+                            timers</strong> — helping you maintain healthy play
+                        habits</li>
+                </ul>
+            </div>
+
+            <div class="cta-section slide-up">
+                <h2>Ready to Game Your Stress Away?</h2>
+                <p>Join thousands of others who have discovered the power of
+                    therapeutic gaming.</p>
+                <p>Whether you need a <strong>5-minute breather</strong> or a
+                    <strong>deep escape</strong>, GameFarm helps you press pause
+                    on stress.</p>
+                <a href="../index.html" class="cta-button">Start Playing Now —
+                    It's Free!</a>
+            </div>
+        </div>
+
+        <footer class="fade-in">
+            <div class="container">
+                <p>© 2023 GameFarm — Your Digital Relaxation Destination</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+        // Simple intersection observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.content-section, footer').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effect to benefit cards
+        const cards = document.querySelectorAll('.benefit-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    </body>
+</html>

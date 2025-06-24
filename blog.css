@@ -9,7 +9,7 @@
 
 /* Hero Section */
 .blog-hero {
-    padding: 3rem 0;
+    padding: 6rem 0;
     text-align: center;
     background: linear-gradient(rgba(108, 92, 231, 0.1), rgba(108, 92, 231, 0.05));
 }
@@ -40,6 +40,7 @@
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
 }
 
 .blog-container:hover {
