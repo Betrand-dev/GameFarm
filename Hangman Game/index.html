@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hangman Game | GameFarm</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="sound-controls">
+                <button class="sound-btn" id="music-btn">🔊</button>
+                <button class="sound-btn" id="sound-btn">🔔</button>
+            </div>
+
+            <h1>Hangman Game</h1>
+
+            <div class="game-info">
+                <div class="info-box">Lives: <span id="lives">6</span></div>
+                <div class="info-box">Score: <span id="score">0</span></div>
+                <div class="info-box">Words Guessed: <span
+                        id="words-guessed">0</span></div>
+            </div>
+
+            <div class="hint" id="hint">Hint: Loading hint...</div>
+
+            <div class="hangman-container">
+                <pre class="hangman-drawing" id="hangman-drawing">
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+            </pre>
+            </div>
+
+            <div class="word-display" id="word-display"></div>
+
+            <div class="keyboard" id="keyboard"></div>
+
+            <div class="game-over" id="game-over"></div>
+
+            <button class="restart-btn" id="restart-btn">New Game</button>
+        </div>
+
+        <div class="modal" id="game-over-modal">
+            <div class="modal-content">
+                <h2 id="modal-title">Game Over</h2>
+                <p id="modal-message">You've run out of lives!</p>
+                <div class="modal-buttons">
+                    <button class="modal-btn modal-btn-primary"
+                        id="play-again-btn">Play Again</button>
+                    <button class="modal-btn modal-btn-secondary"
+                        id="quit-btn">Quit</button>
+                </div>
+            </div>
+        </div>
+
+        <audio id="background-music" loop>
+            <source
+                src="sounds/background.wav"
+                type="audio/mpeg">
+        </audio>
+        <audio id="correct-sound">
+            <source src="sounds/correct.wav"
+                type="audio/mpeg">
+        </audio>
+        <audio id="wrong-sound">
+            <source src="sounds/wrong.wav"
+                type="audio/mpeg">
+        </audio>
+        <audio id="win-sound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-21.mp3"
+                type="audio/mpeg">
+        </audio>
+        <audio id="lose-sound">
+            <source src="https://www.soundjay.com/buttons/sounds/button-20.mp3"
+                type="audio/mpeg">
+        </audio>
+    </body>
+</html>

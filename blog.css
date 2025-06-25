@@ -73,9 +73,22 @@
     color: var(--primary);
 }
 
+.blog-content h1 a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.blog-content h1 a:hover {
+    text-decoration: underline;
+}
+
 .blog-content p a {
     text-decoration: none;
     color: var(--primary);
+}
+
+.blog-content p a:hover {
+    text-decoration: underline;
 }
 
 .blog-content p {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Memory Card Game | GameFarm</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>🃏 Memory Card Game</h1>
+
+            <div class="game-info">
+                <div class="stats">
+                    <span>⏱️ Time: <span id="time">0</span>s</span>
+                    <span>🔢 Moves: <span id="moves">0</span></span>
+                </div>
+                <button id="restart">🔄 Restart</button>
+            </div>
+
+            <div class="game-board" id="game-board"></div>
+
+            <div class="instructions">
+                <h2>How to Play</h2>
+                <p>1. Click on a card to flip it.</p>
+                <p>2. Find and match two identical cards.</p>
+                <p>3. Complete all matches in the shortest time with the fewest
+                    moves!</p>
+            </div>
+        </div>
+
+        <audio id="flip-sound" src="sounds/flip.wav"></audio>
+        <audio id="match-sound" src="sounds/wrong.wav"></audio>
+        <audio id="win-sound" src="sounds/correct.wav"></audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>

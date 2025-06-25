@@ -1,0 +1,276 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --error-color: #e74c3c;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --light-gray: #ecf0f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.info-box {
+    background-color: var(--light-gray);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hint {
+    background-color: #fffde7;
+    padding: 10px;
+    border-left: 4px solid #ffd600;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.hangman-container {
+    text-align: center;
+    margin: 20px 0;
+    min-height: 200px;
+}
+
+.hangman-drawing {
+    font-family: monospace;
+    white-space: pre;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.word-display {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.letter {
+    width: 40px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.letter-char {
+    font-size: 30px;
+    font-weight: bold;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.key:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.key.used {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    cursor: not-allowed;
+}
+
+.key.correct {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.key.wrong {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.game-over {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.win {
+    color: var(--secondary-color);
+}
+
+.lose {
+    color: var(--error-color);
+}
+
+.restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.restart-btn:hover {
+    background-color: #2980b9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+}
+
+.sound-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.sound-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .letter {
+        width: 30px;
+        height: 40px;
+    }
+
+    .letter-char {
+        font-size: 24px;
+        height: 30px;
+    }
+
+    .key {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .sound-controls {
+        position: static;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
