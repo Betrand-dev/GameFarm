@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Game state
     const state = {
         words: [
-            { word: "javascript", hint: "The programming language this game is written in" },
-            { word: "hangman", hint: "The name of this game" },
-            { word: "developer", hint: "Someone who writes code" },
-            { word: "keyboard", hint: "What you're using to play this game" },
+            { word: "apple", hint: "A crunchy fruit that keeps the doctor away" },
+            { word: "moon", hint: "Earth's natural setelite" },
+            { word: "book", hint: "Contains pages and can be read" },
+            { word: "guitar", hint: "A musical instrument with strings" },
             { word: "internet", hint: "The global network that connects computers" },
-            { word: "browser", hint: "The software you're using to view this page" },
-            { word: "responsive", hint: "A design that works on all screen sizes" },
-            { word: "function", hint: "A reusable block of code" },
-            { word: "variable", hint: "A container for storing data values" },
-            { word: "algorithm", hint: "A step-by-step procedure for calculations" }
+            { word: "castle", hint: "A large, fortified building from medieval time" },
+            { word: "electricity", hint: "Powers lights and devices" },
+            { word: "chocolate", hint: "A sweet treat made from cocoa" },
+            { word: "telescope", hint: "Used to observe distant stars and planets" },
+            { word: "dragon", hint: "A mythical fire-breathing creature" }
         ],
         currentWord: "",
         hint: "",
