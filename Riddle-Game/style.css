@@ -1,0 +1,166 @@
+/* Modern and Responsive Riddle Game Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.riddle-container {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    padding: 32px 28px 24px 28px;
+    max-width: 400px;
+    width: 100%;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+
+.riddle-title {
+    font-size: 2rem;
+    color: #1936f8;
+    margin-bottom: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.riddle-question {
+    font-size: 1.15rem;
+    color: #222;
+    margin-bottom: 22px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.option-btn {
+    background: #f1f5ff;
+    color: #222;
+    border: 2px solid #e0e7ff;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s, transform 0.2s;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn.correct {
+    background: #4ade80;
+    color: #fff;
+    border-color: #22c55e;
+    animation: correctPulse 0.5s;
+}
+
+.option-btn.incorrect {
+    background: #f87171;
+    color: #fff;
+    border-color: #ef4444;
+    animation: shake 0.4s;
+}
+
+@keyframes correctPulse {
+    0% {
+        box-shadow: 0 0 0 0 #4ade80;
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(74, 222, 128, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 #4ade80;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-8px);
+    }
+
+    80% {
+        transform: translateX(8px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.next-btn {
+    background: linear-gradient(90deg, #1936f8 0%, #009efd 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(25, 54, 248, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+    display: none;
+}
+
+.next-btn.show {
+    display: block;
+}
+
+.score {
+    font-size: 1.1rem;
+    color: #1936f8;
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .riddle-container {
+        padding: 16px 4vw 12px 4vw;
+        max-width: 98vw;
+    }
+
+    .riddle-title {
+        font-size: 1.3rem;
+    }
+
+    .riddle-question {
+        font-size: 1rem;
+    }
+
+    .option-btn,
+    .next-btn {
+        font-size: 0.98rem;
+        padding: 10px 0;
+    }
+}
